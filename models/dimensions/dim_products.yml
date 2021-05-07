@@ -1,0 +1,19 @@
+version: 2
+
+model: 
+  - name: dim_products
+    description: a table for products in the company database 
+    columns:
+      - name: ProductID
+        description: primary key for dim_products table
+        tests:
+          - unique
+          - not_null
+      - name: Product_Name
+        description: the names of the products in the database
+      - name: StandardCost
+        description: the general cost incurred per product, in terms of prodction
+      - name: ListPrice
+        description: the price at which the manufacturer recommends the product be sold
+      - name: DaysToManufacture
+        description: the number of days it takes the company to manifacture a product

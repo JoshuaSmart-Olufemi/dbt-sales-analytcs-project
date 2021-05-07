@@ -1,0 +1,25 @@
+version: 2
+
+models: 
+  - name: fct_salesinfo
+    description: sales table containing information from the sales_detail and sales_header tables
+    columns: 
+      - name: SalesOrderID
+        description: primary key for fct_salesinfo table
+        tests: 
+          - unique
+          - not_null
+      - name: OrderDate
+        description: the date the orders in the table are placed
+      - name: DueDate
+        description: the date the orders are due to be received by the customers
+      - name: ShipDate
+        description: the date that the products ordered by customers wll be shipped
+      - name: OnlineOrderFlag
+        description: a column describing the two types of sales - online sales(1) and reseller sales(0)
+      - name: Revenue
+        description: the revenue from the products sold
+      - name: OrderQty
+        description: the number/amount of orders requested for/ordered per customer
+      - name: UnitPrice
+        description: the cost per item of each product 

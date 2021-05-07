@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_sales_details
+    description: table of data related to sales information
+    columns:
+      - name: SalesOrderID
+        description: primary key for the stg_sales_details table
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_sales_details')
+              field: SalesOrderID
+      - name: ProductID
+        description: secondary key in sales_details table, present to reference the "products" model
+        tests:
+          - not_null
+  - name: stg_sales_header
+    description: table containing additional information on sales proceedings
+    columns: 
+      - name: SalesOrderID
+        description: primary key for stg_sales_header table
+        tests:
+          - unique
+          - not_null
+      - name: OnlineOrderFlag
+        description: column in stg_sales_header used to differentiate between online (1) and reseller (0) sales
+        tests:
+          - accepted_values: 
+              values: [0,1]
+              quote: false
